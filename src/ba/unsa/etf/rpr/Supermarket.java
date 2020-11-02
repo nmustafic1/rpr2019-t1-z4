@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.sql.SQLOutput;
+
 public class Supermarket {
     private Artikl[] artikli = new Artikl[1000];
     private int broj_artikala = 0;
@@ -7,23 +9,28 @@ public class Supermarket {
     public Artikl[] getArtikli() {
         return artikli;
     }
+    int getBroj_artikala() { return  broj_artikala;}
 
     public Artikl izbaciArtiklSaKodom (String kod){
         Artikl  a1 = null;
+      //  System.out.println(broj_artikala);
         for (int i=0; i<broj_artikala; i++){
             if (kod.equals(artikli[i].getKod())) {
                 a1 = artikli[i];
-                for (int j=i; i<broj_artikala; j++){
+                for (int j=i; j<broj_artikala-1; j++){
                     artikli[j] = artikli[j+1];
                 }
+                i--;
                 broj_artikala--;
             }
         }
         return a1;
     }
     public void dodajArtikl (Artikl a){
-        artikli[broj_artikala] = a;
-        broj_artikala ++;
+        if (broj_artikala<1000) {
+            artikli[broj_artikala] = a;
+            broj_artikala++;
+        }
     }
 
 
