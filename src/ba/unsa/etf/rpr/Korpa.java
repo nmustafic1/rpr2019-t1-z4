@@ -19,6 +19,7 @@ public class Korpa {
 
     public Artikl izbaciArtiklSaKodom (String kod) {
         Artikl a1= new Artikl();
+        int izbacen = 0;
         for (int i=0; i<broj; i++){
             if (kod.equals (a[i].getKod())) {
                 a1=a[i];
@@ -26,9 +27,11 @@ public class Korpa {
                     a[j] = a[j+1];
                 }
                 broj--;
+                izbacen = 1;
             }
         }
-        return a1;
+        if (izbacen==1) return a1;
+        return  null;
     }
 
 
