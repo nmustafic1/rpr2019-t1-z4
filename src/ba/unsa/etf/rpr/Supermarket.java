@@ -13,7 +13,7 @@ public class Supermarket {
 
     public Artikl izbaciArtiklSaKodom (String kod){
         Artikl  a1 = null;
-      //  System.out.println(broj_artikala);
+
         for (int i=0; i<broj_artikala; i++){
             if (kod.equals(artikli[i].getKod())) {
                 a1 = artikli[i];
